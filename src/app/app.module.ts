@@ -32,6 +32,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+ 
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
