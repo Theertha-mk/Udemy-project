@@ -10,19 +10,23 @@ export class RecipeServices {
     new Recipe(
       'Tasty schnitzel',
       'this is just for the test',
-      'https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVjaXBlfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
+      'https://media.istockphoto.com/photos/fried-steaks-french-fries-and-vegetables-picture-id621971616?k=20&m=621971616&s=612x612&w=0&h=nG5gMCxSKMp-1i3XjOT1R0Pyn9njls6rVGBq5nvH0pU=',
       [new Ingredient('meat', 1), new Ingredient('French Fries', 14)],
     ),
     new Recipe(
       'Big fat Burger',
       'this is just for the test',
-      'https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVjaXBlfGVufDB8fDB8fA%3D%3D&w=1000&q=80',
+      'https://www.eatthis.com/wp-content/uploads/sites/4/2021/04/fatburger.jpg',
       [new Ingredient('buns', 16), new Ingredient('French Fries', 14)],
     ),
   ]
   constructor(private slService: ShoppingListService) {}
   getRecipes() {
     return this.recipes.slice()
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index]
   }
   addingIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients)
