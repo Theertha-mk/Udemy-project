@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { map,tap } from 'rxjs/operators'
+import { map, tap, take, exhaustMap } from 'rxjs/operators'
+import { AuthService } from '../auth/auth.service'
 import { Recipe } from '../recipes/recipe-model'
 
 import { RecipeServices } from '../recipes/recipes.service'
@@ -10,6 +11,7 @@ export class DataStorageService {
   constructor(
     private http: HttpClient,
     private recipeService: RecipeServices,
+    private authService: AuthService,
   ) {}
   storeRecipe() {
     const recipes = this.recipeService.getRecipes()
@@ -36,10 +38,9 @@ export class DataStorageService {
             }
           })
         }),
-        tap(recipes=>{
+        tap((recipes) => {
           this.recipeService.setRecipes(recipes)
-        })
+        }),
       )
-      
   }
 }
