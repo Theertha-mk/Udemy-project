@@ -9,7 +9,7 @@ import { AuthService, AuthResponseData } from './auth.service'
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css'],
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   isLoginMode = true
   isLoading = false
   error: string = null
@@ -48,5 +48,8 @@ export class AuthComponent implements OnInit {
     )
     form.reset()
   }
-  ngOnInit(): void {}
+
+  onHandleError() {
+    this.error = null
+  }
 }
