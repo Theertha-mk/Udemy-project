@@ -19,7 +19,8 @@ import { RecipeServices } from './recipes/recipes.service'
 import { AuthComponent } from './auth/auth.component'
 import { LoadingSpinnerComponent } from './shared/loading-spinners/loading-spinners.component'
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
-import { AlertComponent } from './shared/alert/alert.component'
+import { AlertComponent } from './shared/alert/alert.component';
+import { PlaceholderDirective } from './shared/placeholder/placeholder.directive'
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AlertComponent } from './shared/alert/alert.component'
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
+    PlaceholderDirective,
   ],
   imports: [
     BrowserModule,
@@ -55,5 +57,6 @@ import { AlertComponent } from './shared/alert/alert.component'
     },
   ],
   bootstrap: [AppComponent],
+ 
 })
 export class AppModule {}
