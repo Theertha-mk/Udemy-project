@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
 import { Subscription } from 'rxjs'
+import { DataStorageService } from 'src/app/shared/data-storage.service'
 import { Recipe } from '../recipe-model'
 import { RecipeServices } from '../recipes.service'
 @Component({
@@ -14,6 +15,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   constructor(
     private recipeServices: RecipeServices,
+    private dataStorageService:DataStorageService,
     private router: Router,
     private route: ActivatedRoute,
   ) {}
@@ -25,6 +27,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       },
     )
     this.recipes = this.recipeServices.getRecipes()
+    this.dataStorageService.fetchRecipes().subscribe()
   }
   onNewRecipe() {
     this.router.navigate(['new'], { relativeTo: this.route })
